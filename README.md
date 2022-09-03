@@ -1,5 +1,11 @@
 # Algorithm
-This Repo target for Algorithm
+
+알고리즘 학습 사이트 
+
+1. [백준](https://www.acmicpc.net)
+2. [Solved.ac](https://solved.ac)  
+3. [프로그래머스](https://programmers.co.kr)  
+
 
 ## :dolphin: Problem Solving
 
