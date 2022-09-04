@@ -9,7 +9,7 @@ Github를 보니 어느정도 문제 풀이가 가능하신 분들이 계신거 
 1. BASE Problem (모든 스터디원들이 풀어주었으면 좋겠습니다.)
 2. 본인 기준 아래 문제들이 쉬울경우 For Advanced 문제도 풀어주세요.
 
-### 기본 몸풀기 문제
+### 기본 몸풀기 문제 😆
 ---
 BASE Problem -- 문제 링크
 
@@ -53,7 +53,7 @@ BASE Problem -- 문제 링크
 36. [숫자의 합](https://www.acmicpc.net/problem/11720)
 
 
-### For Advanced 
+### For Advanced 🚀
 
 ---
 
@@ -65,3 +65,68 @@ BASE Problem -- 문제 링크
 2. [2022-카카오기출 : 신고 결과 받기](https://school.programmers.co.kr/learn/courses/30/lessons/92334)
 3. [2020-카카오인턴기출 : 키패드 누르기](https://school.programmers.co.kr/learn/courses/30/lessons/67256)
 4. [2019-카카오인턴기출 : 크레인 인형뽑기 게임](https://school.programmers.co.kr/learn/courses/30/lessons/64061)
+
+
+### Issue Template
+아래의 텍스트를 복사하여 Issue를 생성하면 TASK를 생성할 수 있고 보다 편리하게 문제풀이현황을 공유하고 관리할 수 있습니다.
+문제풀이는 아래의 예시와 같이 Issue 생성하여 진행해 주세요.
+
+---
+
+아래와 같이 풀이한 문제 체크
+![image](https://user-images.githubusercontent.com/44962038/188320551-6fd1f251-f60a-4f02-9e89-0697d6e75105.png)
+
+체크시 Issue에서 얼마나 만큼 테스크가 완료되었는지 표시
+![image](https://user-images.githubusercontent.com/44962038/188320589-547f9bf0-0d72-4b25-bb2c-c39b81d45765.png)
+
+아래와 같이 PR를 날리고 Merge하게 되면 자동으로 issue가 닫히게 설정할 수 있습니다.
+![image](https://user-images.githubusercontent.com/44962038/188321190-c0b4beec-bad7-4632-95a0-3d63362ceb05.png)
+
+
+```markdown
+
+BASE PROBLEM
+- [ ] 1. [A+B](https://www.acmicpc.net/problem/1000)
+- [ ] 2. [A-B](https://www.acmicpc.net/problem/1001)
+- [ ] 3. [A/B](https://www.acmicpc.net/problem/1008)
+- [ ] 4. [단어의 개수](https://www.acmicpc.net/problem/1152)
+- [ ] 5. [단어 공부](https://www.acmicpc.net/problem/1157)
+- [ ] 6. [두 수 비교하기](https://www.acmicpc.net/problem/1330)
+- [ ] 7. [평균](https://www.acmicpc.net/problem/1546)
+- [ ] 8. [별 찍기 - 1](https://www.acmicpc.net/problem/2438)
+- [ ] 9. [별 찍기 - 2](https://www.acmicpc.net/problem/2439)
+- [ ] 10. [검증수](https://www.acmicpc.net/problem/2475)
+- [ ] 11. [Hello World](https://www.acmicpc.net/problem/2557)
+- [ ] 12. [최댓값](https://www.acmicpc.net/problem/2562)
+- [ ] 13. [숫자의 개수](https://www.acmicpc.net/problem/2577)
+- [ ] 14. [문자열 반복](https://www.acmicpc.net/problem/2675)
+- [ ] 15. [구구단](https://www.acmicpc.net/problem/2739)
+- [ ] 16. [N 찍기](https://www.acmicpc.net/problem/2741)
+- [ ] 17. [기찍 N](https://www.acmicpc.net/problem/2742)
+- [ ] 18. [윤년](https://www.acmicpc.net/problem/2753)'
+- [ ] 19. [알람 시계](https://www.acmicpc.net/problem/2884)
+- [ ] 20. [상수](https://www.acmicpc.net/problem/2908)
+- [ ] 21. [음계](https://www.acmicpc.net/problem/2920)
+- [ ] 22. [나머지](https://www.acmicpc.net/problem/3052)
+- [ ] 23. [OX퀴즈](https://www.acmicpc.net/problem/8958)
+- [ ] 24. [시험 성적](https://www.acmicpc.net/problem/9498)
+- [ ] 25. [고양이](https://www.acmicpc.net/problem/10171)
+- [ ] 26. [개](https://www.acmicpc.net/problem/10172)
+- [ ] 27. [알파벳 찾기](https://www.acmicpc.net/problem/10809)
+- [ ] 28. [최소, 최대](https://www.acmicpc.net/problem/10818)
+- [ ] 29. [사칙연산](https://www.acmicpc.net/problem/10869)
+- [ ] 30. [X보다 작은 수](https://www.acmicpc.net/problem/10871)
+- [ ] 31. [A+B - 3](https://www.acmicpc.net/problem/10950)
+- [ ] 32. [A+B - 4](https://www.acmicpc.net/problem/10951)
+- [ ] 33. [A+B - 5](https://www.acmicpc.net/problem/10952)
+- [ ] 34. [A×B](https://www.acmicpc.net/problem/10998)
+- [ ] 35. [아스키 코드](https://www.acmicpc.net/problem/11654)
+- [ ] 36. [숫자의 합](https://www.acmicpc.net/problem/11720)
+
+ADVANCED PROBLEM
+- [ ] 1. [2021-카카오기출 : 신규 아이디 추천](https://school.programmers.co.kr/learn/courses/30/lessons/72410)
+- [ ] 2. [2022-카카오기출 : 신고 결과 받기](https://school.programmers.co.kr/learn/courses/30/lessons/92334)
+- [ ] 3. [2020-카카오인턴기출 : 키패드 누르기](https://school.programmers.co.kr/learn/courses/30/lessons/67256)
+- [ ] 4. [2019-카카오인턴기출 : 크레인 인형뽑기 게임](https://school.programmers.co.kr/learn/courses/30/lessons/64061)
+
+```
