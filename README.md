@@ -8,6 +8,9 @@
 
 
 ## :dolphin: Problem Solving
+
+✅  [WEEK1](https://github.com/Dev-StudyGroup/Algorithm/tree/main/Week_1) 👉 기본 문제, 카카오 기출 난이도 하
+
 <!--
 :white_large_square: 0) BOJ Level 1,2  
 :white_large_square: 1) 이것이 코딩 테스트다.  
