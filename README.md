@@ -1,6 +1,11 @@
 # Algorithm
 
-알고리즘 학습 사이트 
+### GROUND RULE
+1. **상호 리뷰**를 원칙으로 합니다. ( 멘토 이외에도 서로 리뷰하면서 배울 수 있길 바랍니다.)
+2. BASE Problem은 **모두가 풀기**를 원합니다.
+3. 최소 **2명이상의 리뷰**를 받아서 Merge 하도록 합니다.
+
+### 알고리즘 학습 사이트 
 
 1. [백준](https://www.acmicpc.net)
 2. [Solved.ac](https://solved.ac)  
