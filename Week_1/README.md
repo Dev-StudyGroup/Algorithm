@@ -17,7 +17,7 @@ solved.ac의 class 2 문제들로 BASE 문제들을 구성했고, 난이도는 �
 ---
 BASE Problem -- 문제 링크
 
-[Solve.ac문제리스트](https://solved.ac/class/1) (동일한 리스트입니다.)
+[Solve.ac문제리스트](https://solved.ac/class/2) (동일한 리스트입니다.)
 
 - [ ] 1. [체스판 다시 칠하기](https://www.acmicpc.net/problem/1018)
 - [ ] 2. [직사각형에서 탈출](https://www.acmicpc.net/problem/1085)
