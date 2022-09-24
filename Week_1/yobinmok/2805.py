@@ -8,10 +8,6 @@ while start <= end:
     wood = 0
     mid = (start + end) // 2
     for i in trees:
-        # if i - mid < 0:
-        #     wood += 0
-        # else:
-        #     wood += i - mid
         if i >= mid:
             wood += i - mid
         # 불필요한 연산 줄이기!

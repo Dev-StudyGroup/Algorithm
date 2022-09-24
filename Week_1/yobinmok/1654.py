@@ -2,8 +2,6 @@ import sys
 k, n = map(int, sys.stdin.readline().split())
 # k: 이미 가진 랜선의 개수, n: 필요한 랜선의 개수
 
-# for i in range(k):
-#     lan.append(int(sys.stdin.readline()))
 lan = [int(sys.stdin.readline()) for _ in range(k)]
 start = 1; end = max(lan)
 

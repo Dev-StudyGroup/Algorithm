@@ -8,23 +8,20 @@ for i in range(n):
 
 for i in range(n-7):
     for j in range(m-7):
-        countW = 0
-        countB = 0
-        for k in range(i, i + 8):
-           for l in range(j, j + 8):
-                if (k + l) % 2 == 0:
-                    # 현재 행의 번호(k)와 현재 열의 번호(l)의 합이 짝수이면 시작점의 색깔과 같아야 함
+        countB = 0; countW = 0
+        for k in range(i, i+8):
+            for l in range(j, j+8):
+                if (k + l) % 2 == 0: # 시작점과 색이 같아야 함
                     if chess[k][l] != "W":
                         countW += 1
-                    if chess[k][l] != "B":
+                    else:
                         countB += 1
                 else:
-                    if chess[k][l] != "B":
-                        countW += 1
                     if chess[k][l] != "W":
                         countB += 1
-        count.append(countB)
-        count.append(countW)
+                    else:
+                        countW += 1
+        count.append(min(countB, countW))
 
 print(min(count))
 
