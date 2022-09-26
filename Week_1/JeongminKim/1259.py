@@ -10,10 +10,6 @@
 
 """
 
-class ZeroNum(Exception):
-    def __init__(self):
-        super().__init__()
-
 result = []
 while True:
     number = input()
