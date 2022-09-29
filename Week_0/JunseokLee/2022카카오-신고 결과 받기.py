@@ -9,7 +9,7 @@ def solution(id_list, report, k):
     result = []
     report = set(report)  # 중복 제거
     report = list(report)  #
-    for i in range(len(id_list)):
+    for i in range(len(id_list)):  # 필요 없는 코드 - 이유? defaultdict(int)쓰면 자동으로 0으로 초기화
         dic[id_list[i]] = 0
         dic1[id_list[i]] = 0
     for i in range(len(report)):
