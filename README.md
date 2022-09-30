@@ -16,7 +16,12 @@
 
 ✅  [WEEK0](https://github.com/Dev-StudyGroup/Algorithm/tree/main/Week_0) 👉 기본 문제 Class1 전체, 카카오 기출 난이도 하  
 ✅  [WEEK1](https://github.com/Dev-StudyGroup/Algorithm/tree/main/Week_1) 👉 기본 문제 Class2 절반, 삼성 2020 하반기 기출  
+<<<<<<< HEAD
 ✅  [WEEK2](https://github.com/Dev-StudyGroup/Algorithm/tree/main/Week_2) 👉 기본 문제 Class2 10문제, Dev-Matching BackEnd 
+=======
+✅  [WEEK2](https://github.com/Dev-StudyGroup/Algorithm/tree/main/Week_2) 👉 기본 문제 Class2 10문제, Dev-Matching BackEnd  
+✅  [WEEK3](https://github.com/Dev-StudyGroup/Algorithm/tree/main/Week_3) 👉 기본 문제 Class2 10문제, 삼성 2021 상반기  
+>>>>>>> main
 
 <!--
 :white_large_square: 0) BOJ Level 1,2  
