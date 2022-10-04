@@ -1,3 +1,6 @@
+# [BOJ] 20058 마법사 상어와 파이어스톰
+# PyPy3 통과
+
 from collections import deque
 from copy import deepcopy
 
@@ -8,22 +11,24 @@ n = 2 ** n
 board = [list(map(int, input().split())) for _ in range(n)]
 step = list(map(int, input().split()))
 
-global nboard
-nboard = [[0]*n for _ in range(n)]
-
 def firestorm(l):
-    global n, nboard
+    global n
+    nboard = [[0]*n for _ in range(n)]
     leng = 2**l
     for i in range(0, n, leng):
         for j in range(0, n, leng):
-            rotate(i, j, leng)
+            nboard = rotate(nboard, i, j, leng)
 
     nboard = fire(nboard)
+    
+    return nboard
 
-def rotate(y, x, leng):
+def rotate(nboard, y, x, leng):
     for i, b in zip(range(y, y + leng), range(x, x + leng)):
         for j, a in zip(range(x, x + leng), range(y + leng - 1, y - 1, -1)):
             nboard[i][j] = board[a][b]
+
+    return nboard
 
 def fire(nboard):
     cboard = deepcopy(nboard)
@@ -51,14 +56,14 @@ def fire(nboard):
 def bfs(i, j):
     dys, dxs = [0, 1, 0, -1], [1, 0, -1, 0]
 
-    dq = deque([(i, j)])
+    dq = deque([(i,j)])
     count = 0
 
     while dq:
         y, x = dq.popleft()
         
         for dy, dx in zip(dys, dxs):
-            ny, nx = y + dy, x + dx
+            ny, nx = y+dy,x+dx
             if in_range(ny, nx) and not visited[ny][nx] and board[ny][nx]:
                 dq.append((ny,nx))
                 visited[ny][nx] = True
@@ -73,12 +78,13 @@ def in_range(y, x):
     return False
 
 for st in step:
-    firestorm(st)
-    board = nboard
+    board = firestorm(st)
+
+
 
 ans_sum = 0
-ans_count = int(-1e9)
-visited = [[False] * n for _ in range(n)]
+ans_count = 0
+visited = [[False]*(n) for _ in range(n)]
 
 for i in range(n):
     for j in range(n):
