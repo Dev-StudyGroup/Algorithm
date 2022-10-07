@@ -9,3 +9,5 @@ crd.sort()
 
 for i in crd:
     print(i[0], i[1])
+
+    

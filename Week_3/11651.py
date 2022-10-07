@@ -10,3 +10,5 @@ crd.sort(key = lambda x: x[1])
 
 for i in crd:
     print(i[0], i[1])
+
+    

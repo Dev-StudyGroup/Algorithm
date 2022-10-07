@@ -21,3 +21,4 @@ print(result)
 # ver 2
 result = fac(n) / (fac(n - k) * fac(k))
 print(int(result))
+

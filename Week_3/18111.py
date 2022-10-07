@@ -34,5 +34,3 @@ for floor in range(avg, -1, -1):
 
 print(fast, height)
 
-
-

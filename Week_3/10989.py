@@ -12,3 +12,5 @@ for i in range(10001):
     if nums[i] != 0:
         for j in range(nums[i]): # 같은 수가 여러개 있을 경우
             print(i) 
+
+            

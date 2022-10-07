@@ -28,3 +28,5 @@ for i in range(n):
         if len(queue) == 0:
             print("-1")
         else: print(queue[-1])
+
+        
