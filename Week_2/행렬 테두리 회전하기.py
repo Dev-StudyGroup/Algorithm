@@ -8,7 +8,7 @@ def solution(rows, columns, queries):
     t = 1
     for row in range(rows):
         for col in range(columns):
-            array[row][col] = t
+            arr[row][col] = t
             t += 1
 
     for r1, c1, r2, c2 in queries:

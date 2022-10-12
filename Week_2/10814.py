@@ -15,4 +15,3 @@ member.sort(key = lambda x: x[0])
 for i in member:
     print(i[0], end=" ")
     print(i[1])
-    
