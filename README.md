@@ -18,15 +18,6 @@
 ✅  [WEEK1](https://github.com/Dev-StudyGroup/Algorithm/tree/main/Week_1) 👉 기본 문제 Class2 절반, 삼성 2020 하반기 기출  
 ✅  [WEEK2](https://github.com/Dev-StudyGroup/Algorithm/tree/main/Week_2) 👉 기본 문제 Class2 10문제, Dev-Matching BackEnd  
 ✅  [WEEK3](https://github.com/Dev-StudyGroup/Algorithm/tree/main/Week_3) 👉 기본 문제 Class2 10문제, 삼성 2021 상반기  
-✅  [WEEK4](https://github.com/Dev-StudyGroup/Algorithm/tree/main/Week_4) 👉 기본 문제 Class3 15문제, Union Find, 위상 정렬 문제
+✅  [WEEK4](https://github.com/Dev-StudyGroup/Algorithm/tree/main/Week_4) 👉 기본 문제 Class3 15문제, Union Find, 위상 정렬 문제  
+✅  [WEEK5](https://github.com/Dev-StudyGroup/Algorithm/tree/main/Week_5) 👉 기본 문제 Class3 15문제, 그리디, 백트래킹 문제  
 
-<!--
-:white_large_square: 0) BOJ Level 1,2  
-:white_large_square: 1) 이것이 코딩 테스트다.  
-:white_large_square: 2) BOJ Level 3까지  
-:white_large_square: 3) BOJ Level 4까지  
-:white_large_square: 4) 프로그래머스 유형별 문제풀기 (전체 다)  
-:white_large_square: 5) BOJ Level 5까지    
-:white_large_square: 6) samsung 기출 문제 40개 (골드 1~5)  
-:white_large_square: 7) 카카오 기출 문제  
--->
