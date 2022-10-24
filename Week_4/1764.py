@@ -18,3 +18,5 @@ notLS = sorted(list(notListen & notSee))
 print(len(notLS))
 for i in notLS:
     print(i)
+
+    
