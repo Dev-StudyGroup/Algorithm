@@ -1,13 +1,14 @@
-"""
-11650: 좌표 정렬하기
-"""
 import sys
+#입력
 n = int(sys.stdin.readline())
-crd = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
-
-crd.sort()
-
-for i in crd:
-    print(i[0], i[1])
-
+dot=[]
+for i in range(n):
+    x, y = map(int, sys.stdin.readline().split())
+    dot.append((x,y))
     
+#정렬
+dot.sort()
+
+#출력
+for x, y in dot:
+    print(x, y)

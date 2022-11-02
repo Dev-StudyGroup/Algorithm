@@ -1,17 +1,21 @@
-"""
-15829: Hashing
+#입력
+l = int(input())
+string = input()
 
-알파벳별로 숫자가 정해져 있음. 
-따라서 입력받은 문자열을 숫자로 표현할 수 있다.
-각 숫자들에 r^i를 곱한 값의 합을 해쉬값으로 정한다.
+M=1234567891
+r=31
 
-* a의 아스키 코드 값: 97
-"""
-L = int(input())
-string = input(); sum = 0
+#해시함수 구현
+def hash_func(x):
+    sum_num=0
+    for i in range(len(x)):
+        sum_num+=x[i]*(r**i)
+    return sum_num
 
-for i in range(len(string)):
-    sum += (ord(string[i])-96) * (31 ** i)
+#영어 소문자로 이루어진 문자열을 숫자문자열로 변환
+num_str=[]
+for i in string:
+    num_str.append(ord(i)-96)
 
-h = sum % 1234567891
-print(h)
+#해시값 출력
+print(hash_func(num_str)%M)

@@ -1,36 +1,37 @@
-"""
-18111: 마인크래프트
-"""
-
-"""
-집터 땅 고르기 작업 -> 세로 N, 가로 M 크기의 집터
-집터 맨 왼쪽 위의 좌표는 (0,0) -> 땅 높이를 일정하게 바꾸는 것이 목표
-- 좌표(i,j)의 맨 위 블록을 제거해 인벤토리에 넣는다. (2s) 제거
-- 인벤토리에서 블록 하나를 꺼내어 좌표(i,j)의 가장 위에 놓는다. (1s) 쌓기 
-"""
-import sys
-from collections import Counter
-
-n, m, b = map(int, sys.stdin.readline().split())
-arr = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
-height, avg = 256, b
-fast = sys.maxsize
-
+#입력
+n, m, b = map(int, input().split())
+arr=[]
 for i in range(n):
-    for j in range(m):
-        avg += arr[i][j]
-avg = avg // (n*m)
+    arr+=list(map(int, input().split()))
 
-for floor in range(avg, -1, -1):
-    t = 0
-    for i in range(n):
-        for j in range(m):
-            count = arr[i][j] - floor
-            t += count * 2 if count > 0 else -count
-    if t < fast:
-        fast = t
-        height = floor
-    else: break
+#집터에서 가장 낮은 높이와 가장 높은 높이 찾기
+max_h = max(arr)
+min_h = min(arr)
 
-print(fast, height)
+#걸리는 시간, 높이
+time=n*m*256*2
+height=0
+#높이를 i로 맞출 때 걸리는 시간 계산
+for i in range(min_h, max_h+1):
+    ans=0
+    if i*(n*m)-sum(arr)>b:
+        break
+    for j in arr:
+        if j==i:
+            continue
+        elif j > i:
+            ans+=2*(j-i)
+            if ans>time:
+                break
+        elif j<i:
+            ans+=1*(i-j)
+            if ans>time:
+                break
+    
+    if time==-1 or ans<=time:
+        time=ans
+        height=i
 
+
+#출력
+print(time, height)

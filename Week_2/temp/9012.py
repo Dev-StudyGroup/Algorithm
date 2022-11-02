@@ -1,21 +1,20 @@
-"""
-9012: 괄호
-"""
-
+#입력
 t = int(input())
-for i in range(t):
+
+for _ in range(t):
     vps = input()
-    stack = []; flag = True
+    stack = [0]
     for i in vps:
-        if i == "(":
-            stack.append(i)
-        elif i == ")":
-            if not stack:
-                flag = False
+        if i=='(':
+            stack.append('(')
+        elif i==')':
+            if stack[-1]=='(':
+                stack=stack[:-1]
+            else:
+                stack.append(')')
                 break
-            elif stack[-1] == "(":
-                stack.pop()
-    if flag == True and not stack:
-        print("YES")
+    if stack==[0]:
+        print('YES')
     else:
-        print("NO")
+        print('NO')
+    

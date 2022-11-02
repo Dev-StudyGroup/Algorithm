@@ -1,13 +1,14 @@
-"""
-10773: 제로
-"""
+import sys
 
+#입력
 k = int(input())
+ls=[0]
+for _ in range(k):
+    n = int(sys.stdin.readline().rstrip())
+    if n==0:
+        ls.pop()
+    else:
+        ls.append(n)
 
-stack = []
-for i in range(k):
-    num = int(input())
-    if num == 0: stack.pop()
-    else: stack.append(num)
-
-print(sum(stack))
+#출력
+print(sum(ls))
