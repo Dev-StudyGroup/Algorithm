@@ -19,5 +19,6 @@
 ✅  [WEEK2](https://github.com/Dev-StudyGroup/Algorithm/tree/main/Week_2) 👉 기본 문제 Class2 10문제, Dev-Matching BackEnd  
 ✅  [WEEK3](https://github.com/Dev-StudyGroup/Algorithm/tree/main/Week_3) 👉 기본 문제 Class2 10문제, 삼성 2021 상반기  
 ✅  [WEEK4](https://github.com/Dev-StudyGroup/Algorithm/tree/main/Week_4) 👉 기본 문제 Class3 15문제, Union Find, 위상 정렬 문제  
-✅  [WEEK5](https://github.com/Dev-StudyGroup/Algorithm/tree/main/Week_5) 👉 기본 문제 Class3 15문제, 그리디, 백트래킹 문제  
+✅  [WEEK5](https://github.com/Dev-StudyGroup/Algorithm/tree/main/Week_5) 👉 기본 문제 Class3 15문제, 그리디, 백트래킹 문제   
+✅  [WEEK6](https://github.com/Dev-StudyGroup/Algorithm/tree/main/Week_6) 👉 기본 문제 Class3 7문제, Class5 문제 3문제
 
