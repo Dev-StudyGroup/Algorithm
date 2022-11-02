@@ -1,17 +1,15 @@
-"""
-10814: 나이순 정렬
-"""
-
-n = int(input())
-
-member = []
+import sys
+#입력
+n = int(sys.stdin.readline().strip())
+member=[]
 for i in range(n):
-    age, name = input().split()
-    age = int(age)
-    member.append([age, name])
+    age, name = sys.stdin.readline().strip().split()
+    member.append((int(age),name))
 
-member.sort(key = lambda x: x[0])
+#정렬
+member.sort(key=lambda x : x[0])
 
-for i in member:
-    print(i[0], end=" ")
-    print(i[1])
+#출력
+for i,j in member:
+    print(i, end=' ')
+    print(j)

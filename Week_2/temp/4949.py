@@ -1,28 +1,48 @@
-"""
-4949: 균형잡힌 세상
-"""
+answer=[]
+
 while True:
-    s = input()
-    if s == ".":
+    #입력
+    string = input()
+    if string == '.':
         break
+    #스택
+    stack = []
+    #플래그
+    flag=True
     
-    stack = []; temp = True
-    for i in s:
-        if i == "(" or i == "[":
+    #문자열을 한 글자씩 반복
+    for i in string:
+        if i=='(' or i=='[':
             stack.append(i)
-        elif i == ")":
-            if not stack or stack[-1] == "[":
-                temp = False
+        elif i==')':
+            if len(stack)==0:
+                answer.append('no')
+                flag=False
                 break
-            elif stack[-1] == "(":
-                stack.pop()
-        elif i == "]":
-            if not stack or stack[-1] == "(":
-                temp = False
+            tmp=stack.pop()
+            if tmp!='(':
+                answer.append('no')
+                flag=False
                 break
-            elif stack[-1] == "[":
-                stack.pop()
-    if temp == True and not stack:
-        print("yes")
-    else:
-        print("no")
+        
+        elif i==']':
+            if len(stack)==0:
+                answer.append('no')
+                flag=False
+                break
+            tmp=stack.pop()
+            if tmp!='[':
+                answer.append('no')
+                flag=False
+                break
+        elif i=='.':
+            if len(stack)!=0:
+                answer.append('no')
+                flag=False
+    
+    if flag==True:
+        answer.append('yes')
+    
+
+for i in range(len(answer)):
+    print(answer[i])

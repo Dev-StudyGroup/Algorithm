@@ -1,27 +1,52 @@
-"""
-10828: 스택
-"""
 import sys
-n = int(sys.stdin.readline())
+
+#스택
 stack = []
 
-for i in range(n):
-    cmd = sys.stdin.readline().split()
-    if cmd[0] == "push":
-        stack.append(cmd[1])
-    elif cmd[0] == "pop":
-        if len(stack) == 0:
-            print("-1")
-        else: print(stack.pop())
-    elif cmd[0] == "size":
-        print(len(stack))
-    elif cmd[0] == "empty":
-        if len(stack) == 0:
-            print('1')
-        else: print('0')
-    elif cmd[0] == "top":
-        if len(stack) == 0:
-            print("-1")
-        else: print(stack[-1])
-
+#push
+def push(x):
+    stack.append(x)
+#pop
+def pop():
+    if stack==[]:
+        print(-1)
+    else:
+        num=stack.pop()
+        print(num)
+    
+#size
+def size():
+    print(len(stack))
+    
+#empty
+def empty():
+    if stack==[]:
+        print(1)
+    else:
+        print(0)
         
+#top
+def top():
+    if stack==[]:
+        print(-1)
+    else:
+        print(stack[-1])
+
+
+
+
+#입력
+n = int(input())
+for _ in range(n):
+    cmd = sys.stdin.readline().rstrip()
+    if cmd=='top':
+        top()
+    elif cmd=='empty':
+        empty()
+    elif cmd=='size':
+        size()
+    elif cmd=='pop':
+        pop()
+    else:
+        ls=list(cmd.split())
+        push(ls[1])
