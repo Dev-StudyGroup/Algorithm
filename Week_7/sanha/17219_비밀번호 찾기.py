@@ -12,4 +12,3 @@ for _ in range(N):
 for _ in range(M):
     address = input().rstrip()
     print(dic[address])
-    
