@@ -36,7 +36,6 @@ jobs:
         run: unzip pr_number.zip
             
       - name: Make label if approved review < 3
-        if: ${{ !contains(github.event.pull_request.labels.*.name, 'Need Review') }}
         uses: actions/github-script@v4
         with:
           script: |
@@ -55,7 +54,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Remove label if approved review >= 3
-        if: ${{ contains(github.event.pull_request.labels.*.name, 'Need Review') }}
         uses: actions/github-script@v4
         with:
           script: |
