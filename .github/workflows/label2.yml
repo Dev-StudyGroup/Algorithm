@@ -12,7 +12,6 @@ jobs:
         uses : actions/github-script@v6
         with : 
           script : |
-          
             let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
               owner : context.repo.owner,
               repo : context.repo.repo,
@@ -29,21 +28,9 @@ jobs:
                artifact_id: matchArtifact.id,
                archive_format: 'zip',
             });
-                        
-            let matchArtifact2 = allArtifacts.data.artifacts.filter((artifact) => {
-              return artifact.name == "review_num"
-            })[0];
             
-            let download2 = await github.rest.actions.downloadArtifact({
-               owner: context.repo.owner,
-               repo: context.repo.repo,
-               artifact_id: matchArtifact2.id,
-               archive_format: 'zip',
-            });
-
             let fs = require('fs');
             fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/pr_number.zip`, Buffer.from(download.data));
-            fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/review_num.zip`, Buffer.from(download2.data));
 
       - name: 'Unzip artifact1'
         run: unzip pr_number.zip
