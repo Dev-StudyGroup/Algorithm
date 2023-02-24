@@ -1,7 +1,3 @@
-# @author : Donghak Park <donghak.park@samsung.com>
-# @file   : labeler.yml
-# @date   : 15 Feb 2023
-
 name: Auto Need-Review labeler
 
 on:
@@ -22,12 +18,12 @@ jobs:
           | jq '[ .[] | select(.state=="APPROVED") ] | length')
           echo "Number of approved review_count: $review"
           echo "REVIEW=$review" >> $GITHUB_OUTPUT
-          mkdir -p ./pr
-          echo $review > ./pr/review_num
+          mkdir -p ./re
+          echo $review > ./re/review_num
       - uses: actions/upload-artifact@v3
         with:
           name: review_num
-          path: pr/
+          path: re/
           
       - name: DEBUG
         run: |
