@@ -60,19 +60,8 @@ jobs:
         run: unzip pr_number.zip
       - name: 'Unzip artifact2'
         run: unzip review_num.zip
-        
-      - name: 'review_count'
-        id : review_count
-        uses: actions/github-script@v4
-        with:
-          script: |
-            let fs = require('fs');
-            let review = Number(fs.readFileSync('./review_num'));
-            echo "review_num : $review"
-            echo "REVIEW=$review" >> $GITHUB_OUTPUT
             
       - name: Make label if approved review < 3
-        if: ${{ steps.review_count.outputs.REVIEW < 3 && !contains(github.event.pull_request.labels.*.name, 'Need Review') }}
         uses: actions/github-script@v4
         with:
           script: |
