@@ -65,7 +65,7 @@ jobs:
         id : review_count
         uses: actions/github-script@v6
         with:
-          scripts: |
+          script: |
             let fs = require('fs');
             let review = Number(fs.readFileSync('./review_num'));
             echo "review_num : $review"
