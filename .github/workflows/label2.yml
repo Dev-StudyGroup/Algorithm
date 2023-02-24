@@ -58,6 +58,8 @@ jobs:
       
       - name: 'Unzip artifact1'
         run: unzip pr_number.zip
+      - name: 'Unzip artifact2'
+        run: unzie review_num.zip
         
       - name: 'review_count'
         id : review_count
