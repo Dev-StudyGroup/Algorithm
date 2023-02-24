@@ -16,8 +16,6 @@ jobs:
     steps:
       - name: review_count
         id: review_count
-        env:
-          PR_NUMBER: ${{ github.event.number }}
         run: |
           review=$(curl -s -H "Accept: application/vnd.github.black-cat-preview+json" \
           https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/reviews \
@@ -25,13 +23,24 @@ jobs:
           echo "Number of approved review_count: $review"
           echo "REVIEW=$review" >> $GITHUB_OUTPUT
           mkdir -p ./pr
-          echo $PR_NUMBER > ./pr/pr_number
           echo $review > ./pr/review_num
       - uses: actions/upload-artifact@v3
         with:
-          name: pr_number
+          name: review_num
           path: pr/
           
       - name: DEBUG
         run: |
           echo "Number of Approved review_count : ${{ steps.review_count.outputs.REVIEW }}"
+
+      - name: PR_NUM
+        id: PR_NUM
+        env:
+          PR_NUMBER: ${{ github.event.number }}
+        run: |
+          mkdir -p ./pr
+          echo $PR_NUMBER > ./pr/pr_number
+      - uses: actions/upload-artifact@v3
+        with:
+          name: pr_number
+          path: pr/
