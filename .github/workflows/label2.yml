@@ -44,7 +44,7 @@ jobs:
             let issue_number = Number(fs.readFileSync('./pr_number'));
             let review = Number(fs.readFileSync('./review_num'));
             
-            if (review < 3) {
+            if (review < 0) {
             await github.issues.addLabels({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -63,7 +63,7 @@ jobs:
             let issue_number = Number(fs.readFileSync('./pr_number'));
             let review = Number(fs.readFileSync('./review_num'));
             
-            if (review >= 3) {
+            if (review >= 0) {
             github.issues.removeLabel({
               owner: context.repo.owner,
               repo: context.repo.repo,
