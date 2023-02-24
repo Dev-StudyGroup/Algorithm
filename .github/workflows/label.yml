@@ -5,9 +5,11 @@
 name: Auto Need-Review labeler
 
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, edited, reopened, synchronize]
-    
+  pull_request_review:
+    types: [edited, dismissed, submitted]
+
 jobs:
   label:
     runs-on: ubuntu-latest
@@ -21,32 +23,8 @@ jobs:
           echo "Number of approved review_count: $review"
           echo "::set-output name=review::$review"
           echo "REVIEW=$review" >> $GITHUB_OUTPUT
+
       
       - name: DEBUG
         run: |
           echo "Number of Approved review_count : ${{ steps.review_count.outputs.REVIEW }}"
-      - name: Make label if approved review < 3
-        if: ${{ steps.review_count.outputs.REVIEW < 3 && !contains(github.event.pull_request.labels.*.name, 'Need Review') }}
-        uses: actions/github-script@v4
-        with:
-          script: |
-            github.issues.addLabels({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              labels: ["Need Review"]
-            })
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Remove label if approved review >= 3
-        if: ${{ steps.review_count.outputs.REVIEW >= 3 && contains(github.event.pull_request.labels.*.name, 'Need Review') }}
-        uses: actions/github-script@v4
-        with:
-          script: |
-            github.issues.removeLabel({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              name : ["Need Review"]
-            })
-          token: ${{ secrets.GITHUB_TOKEN }}
