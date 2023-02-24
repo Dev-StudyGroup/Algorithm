@@ -63,7 +63,7 @@ jobs:
         
       - name: 'review_count'
         id : review_count
-        uses: actions/github-script@v4
+        uses: actions/github-script@v6
         with:
           scripts: |
             let fs = require('fs');
