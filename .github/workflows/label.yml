@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: review_count
+        env:
+          PR_NUMBER: ${{ github.event.number }}
         id: review_count
         run: |
           review=$(curl -s -H "Accept: application/vnd.github.black-cat-preview+json" \
@@ -18,25 +20,15 @@ jobs:
           | jq '[ .[] | select(.state=="APPROVED") ] | length')
           echo "Number of approved review_count: $review"
           echo "REVIEW=$review" >> $GITHUB_OUTPUT
-          mkdir -p ./re
-          echo $review > ./re/review_num
-      - uses: actions/upload-artifact@v3
-        with:
-          name: review_num
-          path: re/
           
-      - name: DEBUG
-        run: |
-          echo "Number of Approved review_count : ${{ steps.review_count.outputs.REVIEW }}"
-
-      - name: PR_NUM
-        id: PR_NUM
-        env:
-          PR_NUMBER: ${{ github.event.number }}
-        run: |
           mkdir -p ./pr
           echo $PR_NUMBER > ./pr/pr_number
+          echo $review > ./pr/review_num
       - uses: actions/upload-artifact@v3
         with:
           name: pr_number
           path: pr/
+          
+      - name: DEBUG
+        run: |
+          echo "Number of Approved review_count : ${{ steps.review_count.outputs.REVIEW }}"
