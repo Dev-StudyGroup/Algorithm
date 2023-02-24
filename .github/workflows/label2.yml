@@ -32,36 +32,20 @@ jobs:
             let fs = require('fs');
             fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/pr_number.zip`, Buffer.from(download.data));
             
-      - name : 'Download artifact2'
-        uses : actions/github-script@v6
-        with : 
-          script : |
-            let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
-              owner : context.repo.owner,
-              repo : context.repo.repo,
-              run_id : context.payload.workflow_run.id,
-            });
-            
-            let matchArtifact2 = allArtifacts.data.artifacts.filter((artifact) => {
-              return artifact.name == "review_num"
-            })[0];
-            
-            let download2 = await github.rest.actions.downloadArtifact({
-               owner: context.repo.owner,
-               repo: context.repo.repo,
-               artifact_id: matchArtifact2.id,
-               archive_format: 'zip',
-            });
-
-            let fs = require('fs');
-            fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/review_num.zip`, Buffer.from(download2.data));
-      
-      - name: 'Unzip artifact1'
+      - name: 'Unzip artifact'
         run: unzip pr_number.zip
-      - name: 'Unzip artifact2'
-        run: unzip review_num.zip
+                  - name: 'review_count'
+        id : review_count
+        uses: actions/github-script@v4
+        with:
+          script: |
+            let fs = require('fs');
+            let review = Number(fs.readFileSync('./review_num'));
+            echo "review_num : $review"
+            echo "REVIEW=$review" >> $GITHUB_OUTPUT
             
       - name: Make label if approved review < 3
+        if: ${{ steps.review_count.outputs.REVIEW < 3 && !contains(github.event.pull_request.labels.*.name, 'Need Review') }}
         uses: actions/github-script@v4
         with:
           script: |
@@ -91,3 +75,4 @@ jobs:
               name : ["Need Review"]
             })
           token: ${{ secrets.GITHUB_TOKEN }}
+
