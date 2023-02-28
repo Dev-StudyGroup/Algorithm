@@ -45,6 +45,7 @@ jobs:
             let is_contain = String(fs.readFileSync('./contain_bool'));
             
             console.log(is_contain)
+            console.log(typeof is_contain)
             
             if ((review >= 0) && (is_contain=="true")) {
             await github.issues.removeLabel({
@@ -52,7 +53,9 @@ jobs:
               repo: context.repo.repo,
               issue_number: issue_number,
               labels : ["Need Review"]
-            })}
+            })
+            console.log("in remove")
+            }
           token: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Make label if approved review < 3
@@ -64,6 +67,9 @@ jobs:
             let review = Number(fs.readFileSync('./review_num'));
             let is_contain = Boolean(fs.readFileSync('./contain_bool'));
             
+            console.log(is_contain)
+            console.log(typeof is_contain)
+            
             if ((review <= 0) && (is_contain=="false")) {
             await github.issues.addLabels({
               owner: context.repo.owner,
@@ -71,6 +77,7 @@ jobs:
               issue_number: issue_number,
               labels: ["Need Review"]
             })
+            console.log("in create")
             }
           token: ${{ secrets.GITHUB_TOKEN }}
 
