@@ -53,7 +53,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: issue_number,
-              labels : ["Need Review"]
+              name : "Need Review"
             })
             console.log("in remove")
             }
