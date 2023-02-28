@@ -20,10 +20,14 @@ jobs:
           | jq '[ .[] | select(.state=="APPROVED") ] | length')
           echo "Number of approved review_count: $review"
           echo "REVIEW=$review" >> $GITHUB_OUTPUT
+          is_contain = contains(github.event.pull_request.labels.*.name, 'Need Review')
+          echo "CONTAIN?=$is_contain
           
           mkdir -p ./pr
           echo $PR_NUMBER > ./pr/pr_number
           echo $review > ./pr/review_num
+          echo $is_contain > ./pr/contain_bool
+          
       - uses: actions/upload-artifact@v3
         with:
           name: pr_number
