@@ -34,26 +34,7 @@ jobs:
             
       - name: 'Unzip artifact'
         run: unzip pr_number.zip
-            
-      - name: Make label if approved review < 3
-        uses: actions/github-script@v4
-        with:
-          script: |
-            let fs = require('fs');
-            let issue_number = Number(fs.readFileSync('./pr_number'));
-            let review = Number(fs.readFileSync('./review_num'));
-            let is_contain = Boolean(fs.readFileSync('./contain_bool'));
-            
-            if (review <= 0 && (is_contain)) {
-            await github.issues.addLabels({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: issue_number,
-              labels: ["Need Review"]
-            })
-            }
-          token: ${{ secrets.GITHUB_TOKEN }}
-
+        
       - name: Remove label if approved review >= 3
         uses: actions/github-script@v4
         with:
@@ -63,12 +44,33 @@ jobs:
             let review = Number(fs.readFileSync('./review_num'));
             let is_contain = Boolean(fs.readFileSync('./contain_bool'));
             
-            if (review >= 0 && !(is_contain)) {
-            github.issues.removeLabel({
+            if ((review >= 0) && (is_contain)) {
+            await github.issues.removeLabel({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: issue_number,
-              name : ["Need Review"]
+              labels : ["Need Review"]
             })}
           token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Make label if approved review < 3
+        uses: actions/github-script@v4
+        with:
+          script: |
+            let fs = require('fs');
+            let issue_number = Number(fs.readFileSync('./pr_number'));
+            let review = Number(fs.readFileSync('./review_num'));
+            let is_contain = Boolean(fs.readFileSync('./contain_bool'));
+            
+            if ((review <= 0) && !(is_contain)) {
+            await github.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue_number,
+              labels: ["Need Review"]
+            })
+            }
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+
 
