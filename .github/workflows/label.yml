@@ -21,7 +21,7 @@ jobs:
           | jq '[ .[] | select(.state=="APPROVED") ] | length')
           echo "Number of approved review_count: $review"
           echo "REVIEW=$review" >> $GITHUB_OUTPUT
-          echo "CONTAIN?=$IS_CONTAIN
+          echo "CONTAIN?=$IS_CONTAIN"
           
           mkdir -p ./pr
           echo $PR_NUMBER > ./pr/pr_number
