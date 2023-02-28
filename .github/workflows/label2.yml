@@ -47,8 +47,8 @@ jobs:
             console.log(is_contain)
             console.log(typeof is_contain)
             console.log((review >= 0))
-            console.log((review >= 0) && (is_contain=="true"))
-            if ((review >= 0) && (is_contain=="true")) {
+            console.log((review >= 0) && (is_contain==String("true")))
+            if ((review >= 0) && (is_contain==String("true"))) {
             await github.issues.removeLabel({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -71,8 +71,8 @@ jobs:
             console.log(is_contain)
             console.log(typeof is_contain)
             console.log((review <= 0))
-            console.log((review <= 0) && (is_contain=="false"))
-            if ((review <= 0) && (is_contain=="false")) {
+            console.log((review <= 0) && (is_contain==String("false")))
+            if ((review <= 0) && (is_contain==String("false"))) {
             await github.issues.addLabels({
               owner: context.repo.owner,
               repo: context.repo.repo,
