@@ -42,7 +42,7 @@ jobs:
             let fs = require('fs');
             let issue_number = Number(fs.readFileSync('./pr_number'));
             let review = Number(fs.readFileSync('./review_num'));
-            let is_contain = fs.readFileSync('./contain_bool');
+            let is_contain = String(fs.readFileSync('./contain_bool'));
             
             console.log(is_contain)
             
