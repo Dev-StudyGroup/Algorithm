@@ -46,7 +46,7 @@ jobs:
             
             console.log(is_contain)
             
-            if ((review >= 0) && (is_contain)) {
+            if ((review >= 0) && (is_contain==="true")) {
             await github.issues.removeLabel({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -64,7 +64,7 @@ jobs:
             let review = Number(fs.readFileSync('./review_num'));
             let is_contain = Boolean(fs.readFileSync('./contain_bool'));
             
-            if ((review <= 0) && !(is_contain)) {
+            if ((review <= 0) && (is_contain==="false")) {
             await github.issues.addLabels({
               owner: context.repo.owner,
               repo: context.repo.repo,
