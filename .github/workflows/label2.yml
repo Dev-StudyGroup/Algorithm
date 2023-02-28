@@ -44,6 +44,8 @@ jobs:
             let review = Number(fs.readFileSync('./review_num'));
             let is_contain = Boolean(fs.readFileSync('./contain_bool'));
             
+            console.log(is_contain)
+            
             if ((review >= 0) && (is_contain)) {
             await github.issues.removeLabel({
               owner: context.repo.owner,
