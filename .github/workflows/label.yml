@@ -20,7 +20,7 @@ jobs:
           | jq '[ .[] | select(.state=="APPROVED") ] | length')
           echo "Number of approved review_count: $review"
           echo "REVIEW=$review" >> $GITHUB_OUTPUT
-          is_contain = contains(github.event.pull_request.labels.*.name, 'Need Review')
+          is_contain = $(contains(github.event.pull_request.labels.*.name, 'Need Review'))
           echo "CONTAIN?=$is_contain
           
           mkdir -p ./pr
