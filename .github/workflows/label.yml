@@ -27,6 +27,7 @@ jobs:
           echo $PR_NUMBER > ./pr/pr_number
           echo $review > ./pr/review_num
           echo $IS_CONTAIN > ./pr/contain_bool
+          echo "$PR_NUMBER"
           
       - uses: actions/upload-artifact@v3
         with:
