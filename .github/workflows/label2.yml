@@ -38,6 +38,7 @@ jobs:
       - name: Remove label if approved review >= 3
         uses: actions/github-script@v6
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             let fs = require('fs');
             let issue_number = Number(fs.readFileSync('./pr_number'));
@@ -59,11 +60,11 @@ jobs:
             })
             console.log("in remove")
             }
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Make label if approved review < 3
         uses: actions/github-script@v6
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             let fs = require('fs');
             let issue_number = Number(fs.readFileSync('./pr_number'));
@@ -85,7 +86,4 @@ jobs:
             })
             console.log("in create")
             }
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-
-
+          
