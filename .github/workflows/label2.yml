@@ -36,7 +36,7 @@ jobs:
         run: unzip pr_number.zip
         
       - name: Remove label if approved review >= 3
-        uses: actions/github-script@v4
+        uses: actions/github-script@v6
         with:
           script: |
             let fs = require('fs');
@@ -49,7 +49,7 @@ jobs:
             console.log((review >= 0))
             console.log((review >= 0) && (is_contain==String("true")))
             if ((review >= 0) && (is_contain==String("true"))) {
-            await github.issues.removeLabel({
+            await github.rest.issues.removeLabel({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: issue_number,
@@ -60,7 +60,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Make label if approved review < 3
-        uses: actions/github-script@v4
+        uses: actions/github-script@v6
         with:
           script: |
             let fs = require('fs');
@@ -75,7 +75,7 @@ jobs:
             console.log(is_contain.length)
             console.log("false".length)
             if ((review <= 0) && (is_contain==String("false"))) {
-            await github.issues.addLabels({
+            await github.rest.issues.addLabels({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: issue_number,
