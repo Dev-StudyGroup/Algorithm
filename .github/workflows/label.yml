@@ -16,31 +16,16 @@ jobs:
           IS_CONTAIN: ${{ contains(github.event.pull_request.labels.*.name, 'Need Review') }}
         id: review_count
         run: |
-          reviews=$(curl -s -H "Accept: application/vnd.github.black-cat-preview+json" \
-          https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/reviews)
-          count=0
-          declare -A reviewers
-          for row in $(echo "${reviews}" | jq -r '.[] | @base64'); do
-              _jq() {
-                  echo ${row} | base64 --decode | jq -r ${1}
-              }
-              state=$(_jq '.state')
-              if [ "${state}" == "APPROVED" ]; then
-                  reviewer=$(_jq '.user.login')
-                  created_at=$(_jq '.submitted_at')
-                  if [ ! ${reviewers[$reviewer]+_} ]; then
-                      reviewers[$reviewer]=$created_at
-                      count=$((count+1))
-                  fi
-              fi
-          done
-          echo "Number of approved review_count: $count"
-          echo "REVIEW=$count" >> $GITHUB_OUTPUT
+          review=$(curl -s -H "Accept: application/vnd.github.black-cat-preview+json" \
+          https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/reviews \
+          | jq '[ .[] | select(.state=="APPROVED") | .user.login ] | unique | length')
+          echo "Number of approved review_count: $review"
+          echo "REVIEW=$review" >> $GITHUB_OUTPUT
           echo "CONTAIN?=$IS_CONTAIN"
           
           mkdir -p ./pr
           echo $PR_NUMBER > ./pr/pr_number
-          echo $count > ./pr/review_num
+          echo $review > ./pr/review_num
           echo $IS_CONTAIN > ./pr/contain_bool
           echo "$PR_NUMBER"
           
